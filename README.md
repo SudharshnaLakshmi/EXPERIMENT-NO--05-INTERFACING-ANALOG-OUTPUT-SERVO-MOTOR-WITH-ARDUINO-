@@ -2,7 +2,7 @@
 
 ### AIM
 To interface an Analog output (servo motor) and modify the angular displacement of the servo using PWM signal .
-COMPONENTS REQUIRED:
+### COMPONENTS REQUIRED:
 1.	Servo motor of choice (9v is preferred )
 2.	1 KΩ resistor 
 3.	Arduino Uno 
@@ -47,7 +47,7 @@ An external controller (such as the Arduino) tells the servo where to go with a 
 
 
 
-CIRCUIT DIAGRAM
+### CIRCUIT DIAGRAM
  
  
  ![image](https://user-images.githubusercontent.com/36288975/163544618-6eb8a7b5-7f1a-428a-8d9f-fd899b145efb.png)
@@ -67,15 +67,34 @@ CIRCUIT DIAGRAM
 
 
 ### PROGRAM :
- 
+```
 
+ #include<Servo.h>
+Servo s1;
+void setup()
+{
+  s1.attach(9);
+}
 
+void loop()
+{
+  for(int i=0; i<=180;i+=1)
+  {
+    s1.write(45);
+    delay(15);
+  }
+  for(int i=180; i>=0;i-=1)
+  {
+    s1.write(i);
+    delay(15);
+  }
+    
+  }
 
+```
 
-
-
-
-
-
-### RESULTS: 
+### OUTPUT:
+![OUTPUT](./1.png)
+![OUTPUT](./2.png)
+### RESULT: 
 Arduino uno interfacing with servo motor is learned and angular position is controlled using PWM signal.
